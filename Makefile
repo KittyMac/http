@@ -1,6 +1,6 @@
 
 PONYC ?= ponyc
-PONYC_FLAGS ?= -Dopenssl_0.9.0
+PONYC_FLAGS ?= -Dopenssl_1.1.x
 config ?= release
 
 BUILD_DIR ?= build/$(config)

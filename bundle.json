@@ -7,6 +7,11 @@
     {
       "type": "github",
       "repo": "ponylang/regex"
+    },
+    {
+      "tag": "0.1.0",
+      "type": "github",
+      "repo": "mfelsche/pony-valbytes"
     }
   ]
 }
