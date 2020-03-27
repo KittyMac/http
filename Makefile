@@ -44,6 +44,7 @@ $(BUILD_DIR):
 examples: $(SOURCE_FILES) $(EXAMPLES_SOURCE_FILES) | $(BUILD_DIR) $(DEPS_DIR)
 	stable env $(PONYC) $(PONYC_FLAGS) --path=. $(EXAMPLES_DIR)/httpserver -o $(BUILD_DIR) --checktree --verify
 	stable env $(PONYC) $(PONYC_FLAGS) --path=. $(EXAMPLES_DIR)/sync_httpserver -o $(BUILD_DIR) --checktree --verify
+	stable env $(PONYC) $(PONYC_FLAGS) --path=. $(EXAMPLES_DIR)/hello_world -o $(BUILD_DIR) --checktree --verify
 	stable env $(PONYC) $(PONYC_FLAGS) --path=. $(EXAMPLES_DIR)/raw_tcp -o $(BUILD_DIR) --checktree --verify
 
 .coverage:
