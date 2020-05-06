@@ -46,7 +46,14 @@ actor Main
 
       """
     )
-
+  
+  fun @runtime_override_defaults(rto: RuntimeOptions) =>
+    //rto.ponyanalysis = 1
+    rto.ponynoscale = true
+    rto.ponynoblock = true
+    rto.ponynoyield = false
+    rto.ponygcinitial = 0
+    rto.ponygcfactor = 1.0
 
 class LoggingServerNotify is ServerNotify
   """

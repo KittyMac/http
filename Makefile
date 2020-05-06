@@ -1,6 +1,10 @@
 
 PONYC ?= ponyc
-PONYC_FLAGS ?= -Dopenssl_1.1.x
+PONYC_FLAGS ?= -Dopenssl_0.9.0 --allow-unused-vars
+
+#PONYC ?= /usr/local/Cellar/ponyc/0.33.2/bin/ponyc
+#PONYC_FLAGS ?= -Dopenssl_0.9.0
+
 config ?= release
 
 BUILD_DIR ?= build/$(config)
@@ -40,6 +44,10 @@ $(bench_binary): $(SOURCE_FILES) | $(BUILD_DIR) $(DEPS_DIR)
 
 $(BUILD_DIR):
 	mkdir -p $(BUILD_DIR)
+
+hello_world: $(SOURCE_FILES) $(EXAMPLES_SOURCE_FILES) | $(BUILD_DIR) $(DEPS_DIR)
+	stable env $(PONYC) $(PONYC_FLAGS) --path=. $(EXAMPLES_DIR)/hello_world -o $(BUILD_DIR) --checktree --verify
+	./build/$(config)/hello_world
 
 examples: $(SOURCE_FILES) $(EXAMPLES_SOURCE_FILES) | $(BUILD_DIR) $(DEPS_DIR)
 	stable env $(PONYC) $(PONYC_FLAGS) --path=. $(EXAMPLES_DIR)/httpserver -o $(BUILD_DIR) --checktree --verify

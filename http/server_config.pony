@@ -88,9 +88,19 @@ class val ServerConfig
     let obj = JsonObject
     obj.data("host") = host
     obj.data("port") = port
+    
+    
+    obj.data("connection_timeout") = connection_timeout.i32()
+    obj.data("max_request_handling_lag") = max_request_handling_lag.i32()
+    obj.data("max_concurrent_connections") = max_concurrent_connections.i32()
+    obj.data("timeout_heartbeat_interval") = timeout_heartbeat_interval.i32()
+    
+    /*
     obj.data("connection_timeout") = connection_timeout.i64()
     obj.data("max_request_handling_lag") = max_request_handling_lag.i64()
     obj.data("max_concurrent_connections") = max_concurrent_connections.i64()
     obj.data("timeout_heartbeat_interval") = timeout_heartbeat_interval.i64()
+    */
+    
     doc.data = obj
     doc.string(where indent = "  ", pretty_print = true)
